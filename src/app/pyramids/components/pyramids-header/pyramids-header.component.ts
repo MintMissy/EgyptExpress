@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { PyramidSortingType } from '../sorting-type-select/sorting-type-select.component';
+import { PyramidSortingType } from '../../types/pyramid-sorting.type';
 
 @Component({
   selector: 'app-pyramids-header',
@@ -8,7 +8,7 @@ import { PyramidSortingType } from '../sorting-type-select/sorting-type-select.c
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PyramidsHeaderComponent {
-  @Input() sortingType = PyramidSortingType.PRICE_ASCENDING;
+  @Input() sortingType: PyramidSortingType = 'Price Ascending';
 	@Output() valueChange = new EventEmitter<PyramidSortingType>();
   
   onSortingTypeChange(sortingType: PyramidSortingType) {

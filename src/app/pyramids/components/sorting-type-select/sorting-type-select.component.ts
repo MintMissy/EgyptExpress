@@ -1,13 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-
-export enum PyramidSortingType {
-	PRICE_ASCENDING = 'Price Ascending',
-	PRICE_DESCENDING = 'Price Descending',
-	VOLUME_ASCENDING = 'Volume Ascending',
-	VOLUME_DESCENDING = 'Volume Descending',
-	HEIGHT_ASCENDING = 'Height Ascending',
-	HEIGHT_DESCENDING = 'Height Descending',
-}
+import { getPyramidSortingTypes, PyramidSortingType } from '../../types/pyramid-sorting.type';
 
 @Component({
 	selector: 'app-sorting-type-select',
@@ -16,12 +8,12 @@ export enum PyramidSortingType {
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SortingTypeSelectComponent {
-  @Input() sortingType = PyramidSortingType.PRICE_ASCENDING;
+	@Input() sortingType: PyramidSortingType = 'Price Ascending';
 	@Output() valueChange = new EventEmitter<PyramidSortingType>();
 
-	PyramidSortingType = PyramidSortingType;
+	PyramidSortingType = getPyramidSortingTypes();
 
 	onSortingTypeChange(newSortingType: PyramidSortingType): void {
-    this.valueChange.emit(newSortingType);
+		this.valueChange.emit(newSortingType);
 	}
 }
