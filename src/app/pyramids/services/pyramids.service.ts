@@ -15,7 +15,7 @@ export interface PyramidDataResponse {
   providedIn: 'root',
 })
 export class PyramidsService {
-  API_URL = 'http://pyramids.mouflon.xyz/';
+  API_URL = 'https://pyramids.mouflon.xyz/';
 
   constructor(private readonly httpClient: HttpClient) {}
 
