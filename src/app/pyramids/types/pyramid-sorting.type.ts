@@ -1,4 +1,4 @@
-import { calculateVolume } from "../utils/dimension.utility";
+import { calculateVolume } from "./dimensions.type";
 import { PyramidData } from "./pyramid-data.type";
 
 export type PyramidSortingType =

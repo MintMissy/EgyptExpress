@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { calculateVolume } from '../types/dimensions.type';
 import { PyramidData } from '../types/pyramid-data.type';
-import { calculateVolume } from '../utils/dimension.utility';
 
 @Pipe({
 	name: 'highestPyramidVolume',

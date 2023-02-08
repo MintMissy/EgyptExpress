@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
+import { calculateBaseArea } from '../types/dimensions.type';
 import { PyramidData } from '../types/pyramid-data.type';
-import { calculateBaseArea } from '../utils/dimension.utility';
 
 @Pipe({
 	name: 'highestPyramidBaseArea',
