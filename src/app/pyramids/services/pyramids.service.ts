@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map, Observable } from 'rxjs';
-import { PyramidData } from '../model/pyramid-data.type';
+import { PyramidData } from '../types/pyramid-data.type';
 
 export interface PyramidDataResponse {
   name: string;

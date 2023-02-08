@@ -1,8 +1,4 @@
-export interface Dimensions {
-  width: number;
-  length: number;
-  height: number;
-}
+import { Dimensions } from './dimensions.type';
 
 export interface PyramidData extends Dimensions {
   name: string;
