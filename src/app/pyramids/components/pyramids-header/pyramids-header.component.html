@@ -1,0 +1,20 @@
+<div class="header">
+	<nav class="navigation">
+		<ul class="navigation__list" role="list">
+			<li class="navigation__item">
+				<a
+					class="navigation__link"
+					routerLink="/"
+					routerLinkActive="active"
+					[routerLinkActiveOptions]="{ exact: true }"
+				>
+					All pyramids
+				</a>
+			</li>
+			<li class="navigation__item">
+				<a class="navigation__link" routerLink="/trivia" routerLinkActive="active">Pyramids trivia & data</a>
+			</li>
+		</ul>
+	</nav>
+	<app-sorting-type-select [sortingType]="sortingType" (valueChange)="onSortingTypeChange($event)"></app-sorting-type-select>
+</div>

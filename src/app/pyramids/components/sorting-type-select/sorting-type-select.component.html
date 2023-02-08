@@ -1,0 +1,8 @@
+<select [ngModel]="sortingType" (ngModelChange)="onSortingTypeChange($event)" class="select">
+	<option
+		*ngFor="let sortingOption of PyramidSortingType | keyvalue"
+		[ngValue]="sortingOption.key"
+	>
+		{{ sortingOption.value }}
+	</option>
+</select>

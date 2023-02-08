@@ -1,0 +1,15 @@
+<div class="header container">
+	<app-pyramids-header [sortingType]="sortingType" (valueChange)="onSortingTypeChange($event)"></app-pyramids-header>
+	<ng-container *ngIf="pyramidsData$ | async as pyramidsData; else loadingPyramids">
+		<div class="pyramids-list">
+			<app-pyramid-card
+				class="pyramid-list__item"
+				*ngFor="let pyramidData of pyramidsData"
+				[pyramidData]="pyramidData"
+			></app-pyramid-card>
+		</div>
+	</ng-container>
+	<ng-template #loadingPyramids>
+		<p>Loading pyramids</p>
+	</ng-template>
+</div>

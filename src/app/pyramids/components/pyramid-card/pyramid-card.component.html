@@ -1,0 +1,18 @@
+<div *ngIf="pyramidData" class="card" [class.card--faded]="!pyramidData.available">
+	<img [src]="pyramidData.imageUrl" alt="" aria-hidden="true" class="card__image" />
+	<div class="card__content">
+		<h2 class="card__title">{{ pyramidData.name }}</h2>
+		<dl class="card__statistics">
+			<div class="card__statistic">
+				<dt class="card__statistic__key">Height</dt>
+				<dd class="card__statistic__value">{{ !pyramidData.height ? 0 : pyramidData.height }} m</dd>
+			</div>
+			<div class="card__statistic">
+				<dt class="card__statistic__key">Tour price</dt>
+				<dd class="card__statistic__value">
+					{{ pyramidData.available ? '$' + pyramidData.price / 100 : "Not open for tours" }}
+				</dd>
+			</div>
+		</dl>
+	</div>
+</div>
