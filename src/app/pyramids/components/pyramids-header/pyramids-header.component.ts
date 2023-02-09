@@ -8,7 +8,8 @@ import { PyramidSortingType } from '../../types/pyramid-sorting.type';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class PyramidsHeaderComponent {
-  @Input() sortingType: PyramidSortingType = 'Price Ascending';
+  @Input() sortingType: PyramidSortingType | null = 'Price Ascending';
+  @Input() showSortingSelector = true;
 	@Output() valueChange = new EventEmitter<PyramidSortingType>();
   
   onSortingTypeChange(sortingType: PyramidSortingType) {

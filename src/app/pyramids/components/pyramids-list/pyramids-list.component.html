@@ -1,0 +1,16 @@
+<div class="pyramids-list" *ngIf="pyramidsData$ | async as pyramidsData">
+	<app-pyramid-card class="pyramid-list__item" *ngFor="let pyramidData of pyramidsData" [pyramidData]="pyramidData">
+		<dl class="statistics">
+			<div class="statistic">
+				<dt class="statistic__key">Height</dt>
+				<dd class="statistic__value">{{ !pyramidData.height ? 0 : pyramidData.height }} m</dd>
+			</div>
+			<div class="statistic">
+				<dt class="statistic__key">Tour price</dt>
+				<dd class="statistic__value">
+					{{ pyramidData.available ? "$" + pyramidData.price / 100 : "Not open for tours" }}
+				</dd>
+			</div>
+		</dl>
+	</app-pyramid-card>
+</div>

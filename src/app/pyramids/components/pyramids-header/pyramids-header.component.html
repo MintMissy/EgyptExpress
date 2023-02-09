@@ -16,5 +16,9 @@
 			</li>
 		</ul>
 	</nav>
-	<app-sorting-type-select [sortingType]="sortingType" (valueChange)="onSortingTypeChange($event)"></app-sorting-type-select>
+	<app-sorting-type-select
+		*ngIf="showSortingSelector"
+		[sortingType]="sortingType"
+		(valueChange)="onSortingTypeChange($event)"
+	></app-sorting-type-select>
 </div>

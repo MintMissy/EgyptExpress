@@ -1,7 +1,3 @@
-.header{
-	margin-bottom: 1rem;
-}
-
 .pyramids-list {
 	display: grid;
 	margin-top: 2.75rem;
@@ -19,4 +15,9 @@
 	@media screen and (min-width: 1280px) {
 		grid-template-columns: repeat(4,1fr);
 	}
+}
+
+.loading-data{
+	color: #959595;
+	font-weight: 600;
 }

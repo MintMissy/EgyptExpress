@@ -1,0 +1,41 @@
+<div class="trivia-list" *ngIf="pyramidsData$ | async as pyramidsData">
+	<app-trivia-card
+		[triviaCard]="{
+			title: 'Average Sight Seeing Cost',
+			imageUrl: 'assets/average-sight-seeing-cost.svg',
+			subtitle: 'Average cost',
+			value: '$' + (pyramidsData | averageSightSeeingCost | number : '1.0-0')
+		}"
+	></app-trivia-card>
+	<app-trivia-card
+		[triviaCard]="{
+			title: 'Average Pyramid Volume',
+			imageUrl: 'assets/average-volume.svg',
+			subtitle: 'average volume',
+			value: ((pyramidsData | averagePyramidVolume) / 100 | number : '1.0-0') + ' m³'
+		}"
+	></app-trivia-card>
+	<ng-container *ngIf="pyramidsData | highestPyramidBaseArea as highestPyramidBaseArea">
+		<app-pyramid-card [pyramidData]="highestPyramidBaseArea">
+			<dl class="trivia">
+				<dt class="trivia__key">Highest Base Area</dt>
+				<dd class="trivia__value">
+					{{ highestPyramidBaseArea.width * highestPyramidBaseArea.length | number : "1.0-0" }} m
+				</dd>
+			</dl>
+		</app-pyramid-card>
+	</ng-container>
+	<ng-container *ngIf="pyramidsData | highestPyramidVolume as highestPyramidVolume">
+		<app-pyramid-card [pyramidData]="highestPyramidVolume">
+			<dl class="trivia">
+				<dt class="trivia__key">Highest Volume</dt>
+				<dd class="trivia__value">
+					{{
+						highestPyramidVolume.width * highestPyramidVolume.length * highestPyramidVolume.height | number : "1.0-0"
+					}}
+					m
+				</dd>
+			</dl>
+		</app-pyramid-card>
+	</ng-container>
+</div>

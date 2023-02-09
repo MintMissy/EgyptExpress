@@ -6,9 +6,9 @@ import { PyramidData } from '../types/pyramid-data.type';
 	name: 'highestPyramidBaseArea',
 })
 export class HighestPyramidBaseAreaPipe implements PipeTransform {
-	transform(pyramidsData: PyramidData[]): number {
-		return pyramidsData
-			.map((pyramidData) => calculateBaseArea(pyramidData))
-			.reduce((max, baseArea) => Math.max(max, baseArea), 0);
+	transform(pyramidsData: PyramidData[]): PyramidData {
+		return pyramidsData.reduce((maxBaseAreaPyramid, pyramidData) =>
+			calculateBaseArea(maxBaseAreaPyramid) > calculateBaseArea(pyramidData) ? maxBaseAreaPyramid : pyramidData
+		);
 	}
 }

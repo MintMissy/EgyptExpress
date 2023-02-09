@@ -6,9 +6,9 @@ import { PyramidData } from '../types/pyramid-data.type';
 	name: 'highestPyramidVolume',
 })
 export class HighestPyramidVolumePipe implements PipeTransform {
-	transform(pyramidsData: PyramidData[]): number {
-		return pyramidsData
-			.map((pyramidData) => calculateVolume(pyramidData))
-			.reduce((max, volume) => Math.max(max, volume), 0);
+	transform(pyramidsData: PyramidData[]): PyramidData {
+		return pyramidsData.reduce((maxVolumePyramid, pyramidData) =>
+			calculateVolume(maxVolumePyramid) > calculateVolume(pyramidData) ? maxVolumePyramid : pyramidData
+		);
 	}
 }

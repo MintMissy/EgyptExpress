@@ -1,29 +1,29 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { map, Observable } from 'rxjs';
-import { PyramidsService } from '../../services/pyramids.service';
-import { PyramidData } from '../../types/pyramid-data.type';
-import { applyPyramidTypeSorting, PyramidSortingType } from '../../types/pyramid-sorting.type';
+import { ChangeDetectionStrategy, Component, OnDestroy, OnInit } from '@angular/core';
+import { PyramidSortingType } from '../../types/pyramid-sorting.type';
+import PyramidsContainerPresenter from './pyramids-container.presenter';
 
 @Component({
 	selector: 'app-pyramids-container',
 	templateUrl: './pyramids-container.component.html',
 	styleUrls: ['./pyramids-container.component.scss'],
 	changeDetection: ChangeDetectionStrategy.OnPush,
+	providers: [PyramidsContainerPresenter],
 })
-export class PyramidsContainerComponent implements OnInit {
-	sortingType: PyramidSortingType = 'Height Descending';
-	pyramidsData$?: Observable<PyramidData[]>;
+export class PyramidsContainerComponent implements OnInit, OnDestroy {
+	sortingType$ = this.pyramidsPresenter.sortingType$.asObservable();
+	pyramidsData$ = this.pyramidsPresenter.pyramidsData$.asObservable();
 
-	constructor(private readonly pyramidsService: PyramidsService) {}
+	constructor(private readonly pyramidsPresenter: PyramidsContainerPresenter) {}
 
 	ngOnInit(): void {
-		this.pyramidsData$ = this.pyramidsService
-			.getPyramidsData()
-			.pipe(map((pyramidsData) => applyPyramidTypeSorting(pyramidsData, this.sortingType)));
+		this.pyramidsPresenter.loadPyramidsData();
+	}
+
+	ngOnDestroy(): void {
+		this.pyramidsPresenter.destroy();
 	}
 
 	onSortingTypeChange(sortingType: PyramidSortingType) {
-		this.sortingType = sortingType;
-		this.pyramidsData$ = this.pyramidsData$?.pipe(map((pyramidsData) => applyPyramidTypeSorting(pyramidsData, this.sortingType)));
+		this.pyramidsPresenter.updateSortingType(sortingType);
 	}
 }
