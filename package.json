@@ -8,6 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
+		"format": "prettier --write \"./src/**/*.{ts,css,html,json}\"",
     "deploy": "ng deploy --base-href=\"https://mintmissy.github.io/EgyptExpress/\""
   },
   "private": true,

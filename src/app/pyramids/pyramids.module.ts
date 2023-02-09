@@ -27,8 +27,8 @@ import { TriviaCardComponent } from './components/trivia-card/trivia-card.compon
 		PyramidsHeaderComponent,
 		PyramidCardComponent,
 		SortingTypeSelectComponent,
-  PyramidsListComponent,
-  TriviaCardComponent,
+		PyramidsListComponent,
+		TriviaCardComponent,
 	],
 	imports: [CommonModule, HttpClientModule, RouterModule, PyramidsRoutingModule, FormsModule],
 })

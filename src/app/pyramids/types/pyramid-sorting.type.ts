@@ -1,5 +1,5 @@
-import { calculateVolume } from "./dimensions.type";
-import { PyramidData } from "./pyramid-data.type";
+import { calculateVolume } from './dimensions.type';
+import { PyramidData } from './pyramid-data.type';
 
 export type PyramidSortingType =
 	| 'Price Ascending'

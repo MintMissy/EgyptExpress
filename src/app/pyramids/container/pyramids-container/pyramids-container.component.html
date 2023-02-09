@@ -1,5 +1,8 @@
 <div class="header container">
-	<app-pyramids-header [sortingType]="sortingType$ | async" (valueChange)="onSortingTypeChange($event)"></app-pyramids-header>
+	<app-pyramids-header
+		[sortingType]="sortingType$ | async"
+		(valueChange)="onSortingTypeChange($event)"
+	></app-pyramids-header>
 	<ng-container *ngIf="pyramidsData$ | async as pyramidsData; else loadingData">
 		<router-outlet></router-outlet>
 	</ng-container>
