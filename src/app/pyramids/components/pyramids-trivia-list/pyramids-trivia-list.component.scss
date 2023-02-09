@@ -1,11 +1,12 @@
 .trivia-list {
 	display: grid;
 	grid-template-columns: repeat(1, 1fr);
-	gap: 2.75rem;
 	align-items: stretch;
+	gap: 1.5rem;
 
 	@media screen and (min-width: 640px) {
 		grid-template-columns: repeat(2, 1fr);
+		gap: 2.75rem;
 	}
 
 	@media screen and (min-width: 1024px) {

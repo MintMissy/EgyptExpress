@@ -1,5 +1,9 @@
 .footer{
-	padding-block: 120px 60px;
+	padding-block: 60px 30px;
 	color: #b3b3b3;
 	text-align: center;
+	
+	@media screen and (min-width: 640px) {
+		padding-block: 120px 60px;
+	}
 }

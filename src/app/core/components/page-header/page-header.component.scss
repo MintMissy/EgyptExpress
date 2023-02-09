@@ -1,7 +1,11 @@
 .header{
-	margin-block: 120px 110px;
+	padding-block: 30px 30px;
+	
+	@media screen and (min-width: 768px) {
+		padding-block: 120px 110px;
+	}
 
 	&__image{
-		height: 40px;
+		max-height: 40px;
 	}
 }
